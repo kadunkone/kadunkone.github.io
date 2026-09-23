@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Muthuvel S — Data Analytics Engineer. I build data pipelines and analytics that production teams trust." />
+  <title>Muthuvel S — Data Analytics Engineer</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav">
+      <a class="brand" href="#top">Muthuvel S</a>
+      <div class="nav-links">
+        <a href="#projects">Projects</a>
+        <a href="#stack">Stack</a>
+        <a href="#experience">Experience</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="top">
+    <!-- HERO: who I am, what kind of engineer I am -->
+    <section class="hero">
+      <p class="kicker">Data Analytics Engineer · Bengaluru</p>
+      <h1>Muthuvel S</h1>
+      <p class="lede">
+        I build data pipelines and analytics that production teams actually trust.
+        Data Analytics Engineer at Tata Elxsi, working with Jaguar Land Rover.
+      </p>
+      <p class="lede">
+        I own a customer data platform serving <strong>1M+ monthly active users</strong> —
+        SQL first, dbt-modeled, BigQuery under the hood, Power BI on top.
+      </p>
+      <div class="hero-links">
+        <!-- set to real profile URL after GitHub login -->
+        <a href="#">GitHub</a>
+      </div>
+    </section>
+
+    <!-- PROJECTS: Problem → What you built → What you owned → What changed → Where I can see it -->
+    <section id="projects">
+      <h2>Projects</h2>
+      <p class="section-note">Production work, not tutorial clones. Each one: the problem, what I built, what I owned, what changed, where to see it.</p>
+
+      <article class="project">
+        <h3>Late-event DAU undercount — fixed with a 72-hour lookback</h3>
+        <p class="tags">BigQuery · SQL · Pipeline</p>
+        <dl>
+          <dt>Problem</dt>
+          <dd>DAU was systematically undercounted because late-arriving events were dropped by a narrow processing window.</dd>
+          <dt>What I built</dt>
+          <dd>A 72-hour lookback in the pipeline so late events land in the correct day's counts, with reprocessing logic to backfill.</dd>
+          <dt>What I owned</dt>
+          <dd>Diagnosis of the undercount, design of the lookback window, the reprocessing implementation, and validation of the corrected numbers.</dd>
+          <dt>What changed</dt>
+          <dd>Processing time dropped from <strong>~3 hours to ~20 minutes</strong>, and DAU numbers became trustworthy for stakeholders.</dd>
+          <dt>Where I can see it</dt>
+          <dd>Runs in production behind Tata Elxsi / JLR access — ask me for a walkthrough.</dd>
+        </dl>
+      </article>
+
+      <article class="project">
+        <h3>830-entry Python fault-code decoder → pure BigQuery SQL</h3>
+        <p class="tags">BigQuery · SQL · Python</p>
+        <dl>
+          <dt>Problem</dt>
+          <dd>An 830-entry fault-code decoder lived in Python, outside the warehouse — diagnostics were slow to run and hard to audit.</dd>
+          <dt>What I built</dt>
+          <dd>Converted the entire 830-entry decoder into pure BigQuery SQL, plus diagnostic join-safety queries.</dd>
+          <dt>What I owned</dt>
+          <dd>The full conversion and entry-for-entry validation that the SQL version matched the original Python logic.</dd>
+          <dt>What changed</dt>
+          <dd>Diagnostics now run where the data lives — no Python dependency in the loop, and the logic is auditable in SQL.</dd>
+          <dt>Where I can see it</dt>
+          <dd>Client-side; ask me for a walkthrough.</dd>
+        </dl>
+      </article>
+
+      <article class="project">
+        <h3>dbt models — window functions, dedup, incremental watermarks</h3>
+        <p class="tags">dbt · SQL · BigQuery</p>
+        <dl>
+          <dt>Problem</dt>
+          <dd>Transformations needed consistent deduplication and incremental processing patterns across models instead of one-off scripts.</dd>
+          <dt>What I built</dt>
+          <dd>dbt models using window functions, dedup logic, and incremental watermark patterns.</dd>
+          <dt>What I owned</dt>
+          <dd>Model design, the incremental/watermark logic, and the data quality of what the models produce.</dd>
+          <dt>What changed</dt>
+          <dd>Reliable, incremental pipelines a team can maintain instead of fragile ad-hoc transformations.</dd>
+          <dt>Where I can see it</dt>
+          <dd>Client-side; ask me for a walkthrough.</dd>
+        </dl>
+      </article>
+
+      <article class="project">
+        <h3>LLM Slack bot + certified shared semantic metrics</h3>
+        <p class="tags">Python · Power BI · Semantic layer</p>
+        <dl>
+          <dt>Problem</dt>
+          <dd>Stakeholders asked ad-hoc data questions and used inconsistent, conflicting metric definitions.</dd>
+          <dt>What I built</dt>
+          <dd>An LLM-powered Slack bot answering questions over a set of shared, certified semantic metrics.</dd>
+          <dt>What I owned</dt>
+          <dd>Defined and certified the shared metric definitions, built the bot, and embedded the work directly in JLR sprints and reviews.</dd>
+          <dt>What changed</dt>
+          <dd>One trusted definition per metric; stakeholders self-serve answers in Slack instead of waiting on ad-hoc requests.</dd>
+          <dt>Where I can see it</dt>
+          <dd>Client-side; ask me for a walkthrough.</dd>
+        </dl>
+      </article>
+    </section>
+
+    <!-- STACK: tech + why chosen -->
+    <section id="stack">
+      <h2>Stack</h2>
+      <p class="section-note">Small on purpose. Every tool earns its place.</p>
+      <ul class="stack-list">
+        <li>
+          <span class="stack-name">SQL</span>
+          <span class="stack-why">The primary interface — everything I ship is readable and auditable in SQL first.</span>
+        </li>
+        <li>
+          <span class="stack-name">BigQuery</span>
+          <span class="stack-why">Where the data lives and where compute happens — warehouse-native, no moving data around.</span>
+        </li>
+        <li>
+          <span class="stack-name">dbt</span>
+          <span class="stack-why">Turns transformations into something a team can maintain: models, tests, incremental patterns.</span>
+        </li>
+        <li>
+          <span class="stack-name">Python</span>
+          <span class="stack-why">Glue and prototyping where SQL stops being the right tool — ad-hoc analysis, the Slack bot.</span>
+        </li>
+        <li>
+          <span class="stack-name">Power BI</span>
+          <span class="stack-why">The delivery layer — dashboards and certified datasets stakeholders actually open. 3 years.</span>
+        </li>
+      </ul>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section id="experience">
+      <h2>Experience</h2>
+      <div class="job">
+        <div class="job-head">
+          <h3>Data Analytics Engineer — Tata Elxsi</h3>
+          <p class="job-meta">Bengaluru · Client: Jaguar Land Rover · May 2023 – Present</p>
+        </div>
+        <p>
+          Own a customer data platform serving <strong>1M+ monthly active users</strong>.
+          Pipelines in BigQuery, modeled in dbt, delivered in Power BI —
+          with certified metrics and self-serve tooling (Slack bot) built on top.
+        </p>
+      </div>
+    </section>
+
+    <!-- EDUCATION -->
+    <section id="education">
+      <h2>Education</h2>
+      <p>B.Tech, Electronics and Communication Engineering — Anna University, 2023.</p>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <h2>Contact</h2>
+      <ul class="contact-list">
+        <li><a href="mailto:muthuvelgobi@gmail.com">muthuvelgobi@gmail.com</a></li>
+        <li><a href="tel:+918220566259">+91 8220566259</a></li>
+        <li>Whitefield, Bengaluru, India</li>
+        <!-- set to real profile URL after GitHub login -->
+        <li><a href="#">GitHub</a></li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2026 Muthuvel S · Static page, no trackers.</p>
+  </footer>
+</body>
+</html>
